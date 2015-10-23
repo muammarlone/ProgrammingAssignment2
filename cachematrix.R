@@ -7,7 +7,7 @@
 makeCacheMatrix <- function(x = matrix()) {
 
 ## On first time invocation, inverse is not picked from memory and is computed
-        inverse <- NULL
+        inverse = NULL
         set <- function(y) {
                 x <<- y
                 inverse <<- NULL
@@ -21,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 	setinv <- function(inv) inverse <<- inv
         getinv <- function() inverse
         
-## Construct a list c
+## Construct a list 
 	list(set = set, get = get,
              setinv = setinv,
              getinv = getinv)
@@ -50,9 +50,9 @@ cacheSolve <- function(x, ...) {
 
         ## Solve is a function in R that helps to compute inverse of a square matrix
 
-        inverse <- solve(data)
+        inverse <- solve(data,...)
 	
 	## cacheMatrix for future reuse purposes
         x$setinv(inverse)
-        invserse
+        inverse
 }
